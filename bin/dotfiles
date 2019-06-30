@@ -60,6 +60,14 @@ if ! type_exists 'brew'; then
     ruby -e "$(curl -fsSkL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+# Check for npm (JavaScript Package Manager for Node.js)
+if ! type_exists 'npm'; then
+    e_header "Updating Homebrew..."
+    brew update
+    e_header "Installing Node.js (NPM)"
+    brew install node
+fi
+
 # Check for git
 if ! type_exists 'git'; then
     e_header "Updating Homebrew..."
