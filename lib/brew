@@ -53,6 +53,7 @@ run_brew() {
 
         # use latest rsync rather than out-dated OS X rsync
         # install separately from the main formulae list to fix gh-19
+        e_header "Installing latest version of rsync"
         brew install https://github.com/Homebrew/homebrew-core/blob/master/Formula/rsync.rb
 
         # Remove outdated versions from the Cellar
