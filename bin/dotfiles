@@ -2,7 +2,7 @@
 
 DOTFILES_DIRECTORY="${HOME}/.dotfiles"
 DOTFILES_TARBALL_PATH="https://github.com/Sejopc/dotfiles-2/tarball/master"
-DOTFILES_GIT_REMOTE="git@github.com:necolas/dotfiles-2.git"
+DOTFILES_GIT_REMOTE="git@github.com:Sejopc/dotfiles-2.git"
 
 # If missing, download and extract the dotfiles repository
 if [[ ! -d ${DOTFILES_DIRECTORY} ]]; then
