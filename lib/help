@@ -3,7 +3,7 @@
 run_help() {
 
 cat <<EOT
-OS X dotfiles - Nicolas Gallagher - http://nicolasgallagher.com/
+OS X dotfiles - Nicolas Gallagher, Jose Pablo Peralta -
 
 Usage: $(basename "$0") [options]
 
@@ -13,9 +13,9 @@ Options:
     --no-packages   Suppress package updates
     --no-sync       Suppress pulling from the remote repository
 
-Documentation can be found at https://github.com/necolas/dotfiles/
+Documentation can be found at https://github.com/Sejopc/dotfiles-2
 
-Copyright (c) Nicolas Gallagher
+Copyright (c) Nicolas Gallagher, Jose Pablo Peralta
 Licensed under the MIT license.
 EOT
 
