@@ -10,7 +10,7 @@
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
 # Enable snap-to-grid for desktop icons
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+#/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
 # Always show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
@@ -31,7 +31,7 @@ defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 0
+# defaults write NSGlobalDomain KeyRepeat -int 0
 
 # Trackpad: swipe between pages with three fingers
 defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
@@ -51,8 +51,8 @@ defaults write com.apple.dock no-glass -bool true
 # Dock: position the Dock on the left
 defaults write com.apple.dock orientation left
 
-# Dock: set the icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 36
+# Dock: set the icon size of Dock items to 46 pixels
+defaults write com.apple.dock tilesize -int 46
 
 # Dock: show indicator lights for open applications
 defaults write com.apple.dock show-process-indicators -bool true
@@ -60,8 +60,8 @@ defaults write com.apple.dock show-process-indicators -bool true
 # Dock: make icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
 
-# Dock: don’t animate opening applications
-defaults write com.apple.dock launchanim -bool false
+# Dock: Animate opening applications
+defaults write com.apple.dock launchanim -bool true
 
 # Dock: use the scale effect for window minimizing
 defaults write com.apple.dock mineffect scale
@@ -83,7 +83,7 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 defaults write com.apple.finder EmptyTrashSecurely -bool true
 
 # Finder: disable window and Get Info animations
-defaults write com.apple.finder DisableAllAnimations -bool true
+# defaults write com.apple.finder DisableAllAnimations -bool true
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool true
@@ -114,11 +114,11 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 # Panels: expand print panel by default
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 
-# Panels: disable the “Are you sure you want to open this application?” dialog
-defaults write com.apple.LaunchServices LSQuarantine -bool false
+# Panels: Enable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool true
 
 # Panels: enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
-defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+# defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 
 # Screen
@@ -173,7 +173,7 @@ defaults write com.apple.iTunes disablePing -bool true
 # ----------------------------------------------------------------------
 
 # Misc: only use UTF-8 in Terminal.app
-defaults write com.apple.terminal StringEncodings -array 4
+# defaults write com.apple.terminal StringEncodings -array 4
 
 # Misc: disable Dictionary results
 defaults write com.apple.spotlight DictionaryLookupEnabled -bool false
