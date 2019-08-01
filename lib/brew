@@ -13,6 +13,10 @@ run_brew() {
         # Upgrade any already-installed formulae
         brew upgrade
         [[ $? ]] && e_success "Done"
+        
+        e_header "Installing Brew Cask in order to install major software (i.e Chrome, Firefox, Filezilla, etc)"
+        brew install caskroom/cask/brew-cask 2> /dev/null
+        [[ $? ]] && e_success "Done"
 
         e_header "Checking status of desired Homebrew formulae..."
         local list_formulae
@@ -155,4 +159,16 @@ run_brew() {
         exit
     fi
 
+}
+
+# Will install additional software (casks) from /lib/lists file that the user specifies.
+run_brew_additional_software() {
+
+        if ! formula_exists $1; then
+            e_header "Cask to install: $1"
+            brew cask install $1
+            [[ $? ]] && e_success "Done"
+        else
+            e_header "Cask: $1 already installed"
+        
 }
