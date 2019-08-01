@@ -21,7 +21,7 @@ run_brew() {
             'coreutils' # GNU core utilities (those that come with OS X are outdated)
             'git'
             'the_silver_searcher'
-            'bash'
+            'bash' # Install Bash 4
             'bash-completion'
             'ffmpeg'
             'graphicsmagick'
@@ -31,12 +31,102 @@ run_brew() {
             'tree'
             'wget'
         )
+        
+        # From this point onwards, all programs below are added by me
+        e_header "Checking status of desired useful Utilities..."
+        local -a useful_utilities=(
+            'findutils' # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
+            'gnu-sed --with-default-names' # Install GNU `sed`, overwriting the built-in `sed`.
+            'wget --with-iri' # Install `wget` with IRI support.
+            'gnupg' # Install GnuPG to enable PGP-signing commits.
+            'tree'
+            'p7zip'
+        )
+        
+        e_header "Checking status of most recent versions of MacOS Tools..."
+        local -a recent_version_macos_tools=(
+            'vim --with-override-system-vi'
+            'grep'
+            'openssh'
+            'screen'
+            'php'
+            'gmp'
+        )
+        
+        e_header "Checking status of desired Font Fonts..."
+        local -a font_tools=(
+            'bramstein/webfonttools'
+            'sfnt2woff'
+            'sfnt2woff-zopfli'
+            'woff2'
+        )
+        
+        e_header "BOOM BOOM! - Heavy Armor inbound...\nChecking status desired Security & Hacking related tools"
+        # The Best Security-related Tools
+        local -a ctf_security_tools=(
+            'aircrack-ng'
+            'bfg'
+            'binutils'
+            'binwalk'
+            'cifer'
+            'dex2jar'
+            'dns2tcp'
+            'fcrackzip'
+            'foremost'
+            'hashpump'
+            'hydra'
+            'john'
+            'knock'
+            'netpbm'
+            'nmap'
+            'pngcheck'
+            'socat'
+            'sqlmap'
+            'tcpflow'
+            'tcpreplay'
+            'tcptrace'
+            'ucspi-tcp' # `tcpserver` etc.
+            'xpdf'
+            'xz'
+        )
 
         for index in ${!desired_formulae[*]}
         do
             if ! formula_exists ${desired_formulae[$index]}; then
                 # Store the name (and options) of every missing formula
                 missing_formulae=("${missing_formulae[@]}" "${desired_formulae[$index]}")
+            fi
+        done
+        
+        for index in ${!useful_utilities[*]}
+        do
+            if ! formula_exists ${useful_utilities[$index]}; then
+                # Store the name (and options) of every missing formula
+                missing_formulae=("${missing_formulae[@]}" "${useful_utilities[$index]}")
+            fi
+        done
+        
+        for index in ${!recent_version_macos_tools[*]}
+        do
+            if ! formulae_exists ${recent_version_macos_tools[$index]}; then
+                # Store the name (and options) of every missing formula
+                missing_formulae=("${missing_formulae[@}" "${recent_version_macos_tools[$index]}")
+            fi
+        done
+        
+        for index in ${!font_tools[*]}
+        do
+            if ! formulae_exists ${font_tools[*]}; then
+                # Store the name (and options) of every missing formula
+                missing_formulae=("${missing_formulae[@]}" "${font_tools[$index]}")
+            fi
+        done
+        
+        for index in ${!ctf_security_tools[*]}
+        do
+            if ! formulae_exists ${ctf_security_tools[*]}; then
+                # Store the name (and options) of every missing formula
+                missing_formulae=("${missing_formulae[@]}" "${ctf_security_tools[$index]}")
             fi
         done
 
