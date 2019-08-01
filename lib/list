@@ -4,7 +4,7 @@ run_list() {
 
 cat <<EOT
 
-OS X dotfiles - Nicolas Gallagher - http://nicolasgallagher.com/
+OS X dotfiles - Nicolas Gallagher, Jose Pablo Peralta -
 
 Additional software to install
 
