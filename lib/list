@@ -17,7 +17,6 @@ Development:
     iTerm 2
     ImageAlpha
     ImageOptim
-    Yarn
 
 Other:
     Alfred
@@ -27,5 +26,59 @@ Other:
     KeePassX
     VLC
 EOT
+
+
+read -p "Would you like to install any of the additional software? (Y/y)" -n 1
+is_confirmed
+
+if [[ $? ]]; then
+    read -p "Please choose a Category from above (Browsers, Development, Other): "
+    if [[ "${REPLY,,}" == "browsers" ]]; then
+        PS3='Choose which Browser would you like to install: '
+        select browser in "Firefox" "Chrome"
+        do
+            case $browser in 
+                Firefox) run_brew_additional_software "firefox";;
+                Chrome) run_brew_additional_software "google-chrome";;
+                exit) exit;;
+            esac
+        done
+       
+    elif [[ "${REPLY,,}" == "development" ]]; then
+        PS3='Choose which Development software would you like to install: '
+        select dev_soft in "Filezilla" "iTerm 2" "ImageAlfa" "ImageOptim" "Yarn"
+        do
+            case $dev_soft in
+                Filezilla) run_brew_additional_software "filezilla";;
+                iTerm2) run_brew_additional_software "iterm2";;
+                ImageAlfa) run_brew_additional_software "imagealpha";;
+                ImageOptim) run_brew_additional_software "imageoptim";;
+                exit) exit;;
+            esac
+        done
+    
+    elif [[ "${REPLY,,}" == "other"]]; then
+        PS3='Choose Other software you would like to install: '
+        select other_soft in "Alfred" "Divvy" "Dropbox" "Flux" "KeePassX" "VLC"
+        do
+            case $other_soft in
+                Alfred) run_brew_additional_software "alfred";;
+                Divvy) run_brew_additional_software "divvy";;
+                Dropbox) run_brew_additional_software "dropbox";;
+                Flux) run_brew_additional_software "flux";;
+                KeePassX) run_brew_additional_software "keepassx";;
+                VLC) run_brew_additional_software "vlc";;
+            esac
+        done
+    else
+        e_error "No such category, exiting"
+        return 1
+    fi
+
+else
+    e_success "No additional software will be installed on this machine, continuing ..."
+fi
+
+
 
 }
