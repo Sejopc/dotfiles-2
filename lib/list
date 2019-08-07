@@ -47,7 +47,7 @@ if [[ $? ]]; then
        
     elif [[ "${ANSWER}" == "development" ]]; then
         PS3="`echo $'\n> '`Choose which Development software would you like to install: "
-        select dev_soft in "Filezilla" "iTerm 2" "ImageAlfa" "ImageOptim" "Yarn"
+        select dev_soft in "Filezilla" "iTerm2" "ImageAlfa" "ImageOptim" "Yarn"
         do
             case $dev_soft in
                 Filezilla) run_brew_additional_software "filezilla";;
