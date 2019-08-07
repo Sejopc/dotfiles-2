@@ -141,8 +141,11 @@ run_brew() {
             list_formulae=$( printf "%s " "${missing_formulae[@]}" )
 
             e_header "Installing missing Homebrew formulae..."
-            # Before installing missing formulaes, install some taps necessary for installation
-            brew tap bramstein/webfonttools
+            # Before installing missing formulaes, install some taps and casks necessary for program installations
+            # Necessary tap for installing fonts
+            brew tap bramstein/webfonttools 
+            # Necessary cask for installing bfg program
+            brew cask install adoptopenjdk
             # Install all missing formulae
             brew install $list_formulae
 
