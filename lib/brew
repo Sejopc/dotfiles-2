@@ -36,6 +36,14 @@ run_brew() {
             'wget'
         )
         
+        for index in ${!desired_formulae[*]}
+        do
+            if ! formula_exists ${desired_formulae[$index]}; then
+                # Store the name (and options) of every missing formula
+                missing_formulae=("${missing_formulae[@]}" "${desired_formulae[$index]}")
+            fi
+        done
+        
         # From this point onwards, all programs below are added by me
         e_header "Checking status of desired useful Utilities..."
         local -a useful_utilities=(
@@ -47,6 +55,14 @@ run_brew() {
             'p7zip'
         )
         
+        for index in ${!useful_utilities[*]}
+        do
+            if ! formula_exists ${useful_utilities[$index]}; then
+                # Store the name (and options) of every missing formula
+                missing_formulae=("${missing_formulae[@]}" "${useful_utilities[$index]}")
+            fi
+        done
+        
         e_header "Checking status of most recent versions of MacOS Tools..."
         local -a recent_version_macos_tools=(
             'vim --with-override-system-vi'
@@ -57,6 +73,14 @@ run_brew() {
             'gmp'
         )
         
+        for index in ${!recent_version_macos_tools[*]}
+        do
+            if ! formula_exists ${recent_version_macos_tools[$index]}; then
+                # Store the name (and options) of every missing formula
+                missing_formulae=("${missing_formulae[@]}" "${recent_version_macos_tools[$index]}")
+            fi
+        done
+        
         e_header "Checking status of desired Font Fonts..."
         local -a font_tools=(
             'bramstein/webfonttools'
@@ -65,7 +89,15 @@ run_brew() {
             'woff2'
         )
         
-        e_header "BOOM BOOM! - Heavy Armor inbound...\nChecking status desired Security & Hacking related tools"
+        for index in ${!font_tools[*]}
+        do
+            if ! formulae_exists ${font_tools[*]}; then
+                # Store the name (and options) of every missing formula
+                missing_formulae=("${missing_formulae[@]}" "${font_tools[$index]}")
+            fi
+        done
+        
+        e_header "BOOM BOOM! - Heavy Armor inbound... Checking status of desired Security & Hacking related tools"
         # The Best Security-related Tools
         local -a ctf_security_tools=(
             'aircrack-ng'
@@ -93,39 +125,7 @@ run_brew() {
             'xpdf'
             'xz'
         )
-
-        for index in ${!desired_formulae[*]}
-        do
-            if ! formula_exists ${desired_formulae[$index]}; then
-                # Store the name (and options) of every missing formula
-                missing_formulae=("${missing_formulae[@]}" "${desired_formulae[$index]}")
-            fi
-        done
-        
-        for index in ${!useful_utilities[*]}
-        do
-            if ! formula_exists ${useful_utilities[$index]}; then
-                # Store the name (and options) of every missing formula
-                missing_formulae=("${missing_formulae[@]}" "${useful_utilities[$index]}")
-            fi
-        done
-        
-        for index in ${!recent_version_macos_tools[*]}
-        do
-            if ! formula_exists ${recent_version_macos_tools[$index]}; then
-                # Store the name (and options) of every missing formula
-                missing_formulae=("${missing_formulae[@]}" "${recent_version_macos_tools[$index]}")
-            fi
-        done
-        
-        for index in ${!font_tools[*]}
-        do
-            if ! formulae_exists ${font_tools[*]}; then
-                # Store the name (and options) of every missing formula
-                missing_formulae=("${missing_formulae[@]}" "${font_tools[$index]}")
-            fi
-        done
-        
+            
         for index in ${!ctf_security_tools[*]}
         do
             if ! formulae_exists ${ctf_security_tools[*]}; then
