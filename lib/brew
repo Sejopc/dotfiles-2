@@ -83,7 +83,7 @@ run_brew() {
         
         e_header "Checking status of desired Font Fonts..."
         local -a font_tools=(
-            'bramstein/webfonttools'
+            'fonttools'
             'sfnt2woff'
             'sfnt2woff-zopfli'
             'woff2'
@@ -91,7 +91,7 @@ run_brew() {
         
         for index in ${!font_tools[*]}
         do
-            if ! formula_exists ${font_tools[*]}; then
+            if ! formula_exists ${font_tools[$index]}; then
                 # Store the name (and options) of every missing formula
                 missing_formulae=("${missing_formulae[@]}" "${font_tools[$index]}")
             fi
@@ -128,7 +128,7 @@ run_brew() {
             
         for index in ${!ctf_security_tools[*]}
         do
-            if ! formula_exists ${ctf_security_tools[*]}; then
+            if ! formula_exists ${ctf_security_tools[$index]}; then
                 # Store the name (and options) of every missing formula
                 missing_formulae=("${missing_formulae[@]}" "${ctf_security_tools[$index]}")
             fi
