@@ -35,7 +35,7 @@ if [[ $? ]]; then
     read -p "`echo $'\n> '`Please choose a Category from above (Browsers, Development, Other): "
     ANSWER=$(echo "$REPLY" | tr '[:upper:]' '[:lower:]')
     if [[ "${ANSWER}" == "browsers" ]]; then
-        PS3='`echo $'\n> '`Choose which Browser would you like to install: '
+        PS3="`echo $'\n> '`Choose which Browser would you like to install: "
         select browser in "Firefox" "Chrome"
         do
             case $browser in 
@@ -46,7 +46,7 @@ if [[ $? ]]; then
         done
        
     elif [[ "${ANSWER}" == "development" ]]; then
-        PS3='`echo $'\n> '`Choose which Development software would you like to install: '
+        PS3="`echo $'\n> '`Choose which Development software would you like to install: "
         select dev_soft in "Filezilla" "iTerm 2" "ImageAlfa" "ImageOptim" "Yarn"
         do
             case $dev_soft in
@@ -59,7 +59,7 @@ if [[ $? ]]; then
         done
     
     elif [[ "${ANSWER}" == "other" ]]; then
-        PS3='`echo $'\n> '`Choose Other software you would like to install: '
+        PS3="`echo $'\n> '`Choose Other software you would like to install: "
         select other_soft in "Alfred" "Divvy" "Dropbox" "Flux" "KeePassX" "VLC"
         do
             case $other_soft in
