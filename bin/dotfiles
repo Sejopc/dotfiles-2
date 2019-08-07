@@ -1,3 +1,4 @@
+#!/bin/bash
 
 DOTFILES_DIRECTORY="${HOME}/.dotfiles"
 DOTFILES_TARBALL_PATH="https://github.com/Sejopc/dotfiles-2/tarball/master"
