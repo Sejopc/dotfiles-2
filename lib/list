@@ -57,7 +57,7 @@ if [[ $? ]]; then
             esac
         done
     
-    elif [[ "${REPLY,,}" == "other"]]; then
+    elif [[ "${REPLY,,}" == "other" ]]; then
         PS3='Choose Other software you would like to install: '
         select other_soft in "Alfred" "Divvy" "Dropbox" "Flux" "KeePassX" "VLC"
         do
