@@ -53,6 +53,9 @@ run_brew() {
             'gnupg' # Install GnuPG to enable PGP-signing commits.
             'tree'
             'p7zip'
+            'ack'
+            'lynx'
+            'ssh-copy-id'
         )
         
         for index in ${!useful_utilities[*]}
@@ -83,7 +86,6 @@ run_brew() {
         
         e_header "Checking status of desired Font Fonts..."
         local -a font_tools=(
-            'fonttools'
             'sfnt2woff'
             'sfnt2woff-zopfli'
             'woff2'
@@ -139,6 +141,8 @@ run_brew() {
             list_formulae=$( printf "%s " "${missing_formulae[@]}" )
 
             e_header "Installing missing Homebrew formulae..."
+            # Before installing missing formulaes, install some taps necessary for installation
+            brew tap bramstein/webfonttools
             # Install all missing formulae
             brew install $list_formulae
 
