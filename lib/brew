@@ -112,9 +112,9 @@ run_brew() {
         
         for index in ${!recent_version_macos_tools[*]}
         do
-            if ! formulae_exists ${recent_version_macos_tools[$index]}; then
+            if ! formula_exists ${recent_version_macos_tools[$index]}; then
                 # Store the name (and options) of every missing formula
-                missing_formulae=("${missing_formulae[@}" "${recent_version_macos_tools[$index]}")
+                missing_formulae=("${missing_formulae[@]}" "${recent_version_macos_tools[$index]}")
             fi
         done
         
