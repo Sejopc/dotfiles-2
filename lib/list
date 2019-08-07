@@ -32,9 +32,9 @@ read -p "Would you like to install any of the additional software? (Y/y)" -n 1
 is_confirmed
 
 if [[ $? ]]; then
-    read -p "Please choose a Category from above (Browsers, Development, Other): "
+    read -p "\nPlease choose a Category from above (Browsers, Development, Other): "
     if [[ "${REPLY,,}" == "browsers" ]]; then
-        PS3='Choose which Browser would you like to install: '
+        PS3='\nChoose which Browser would you like to install: '
         select browser in "Firefox" "Chrome"
         do
             case $browser in 
