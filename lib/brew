@@ -170,5 +170,6 @@ run_brew_additional_software() {
             [[ $? ]] && e_success "Done"
         else
             e_header "Cask: $1 already installed"
+        fi
         
 }
