@@ -2,6 +2,9 @@
 
 # bash_profile
 
+# set LOCALE variable
+export LC_ALL="en_US.UTF-8"
+
 # set 256 color profile where possible
 if [[ $COLORTERM == gnome-* && $TERM == xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
     export TERM=gnome-256color
